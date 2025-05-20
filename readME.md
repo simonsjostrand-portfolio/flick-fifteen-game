@@ -33,3 +33,8 @@ git clone https://github.com/your-username/flick-seventeen.git
 cd flick-seventeen
 open index.html
 ```
+
+## 🖼️ Credits
+
+- Gaming icon by [Freepik](https://www.freepik.com) from [Flaticon](https://www.flaticon.com/)
+
