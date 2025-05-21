@@ -20,12 +20,12 @@
     <!-- JS -->
     <script src="src/main.js" type="module"></script>
 
-    <title>Flick Seventeen Game</title>
+    <title>Flick Fifteen Game</title>
   </head>
   <body>
     <main>
       <h1 class="game-title">
-        Flick Seventeen
+        Flick Fifteen
         <img class="icon-controller" src="src/img/icon-controller.png" alt="" />
       </h1>
 
@@ -71,7 +71,7 @@
       <img class="hand-icon" src="src/img/icon-hand.png" alt="" />
       <h2 class="start-title">Hello you!</h2>
       <p class="start-message">
-        This is <span>Flick Seventeen</span>. <br />
+        This is <span>Flick Fifteen</span>. <br />
         Hit go and play. You may want to check the rules first.
       </p>
       <div class="btn-wrapper">
@@ -84,10 +84,7 @@
     <div class="overlay-win">
       <img class="winner-icon" src="src/img/icon-win.png" alt="" />
       <h2 class="winner-title">Winner</h2>
-      <p class="winner-message">
-        GGs... Somewhere out there, your high score is bragging about you. Or is
-        it?
-      </p>
+      <p class="winner-message"></p>
       <button class="btn-play btn-play-again">Go again!</button>
     </div>
 
@@ -95,7 +92,7 @@
     <div class="overlay-loss">
       <img class="loss-icon" src="src/img/icon-loss.png" alt="" />
       <h2 class="loss-title">Oof!</h2>
-      <p class="loss-message">GGs... but not like, good GGs.</p>
+      <p class="loss-message">GG... or, not really.</p>
       <button class="btn-play btn-play-again">Go again!</button>
     </div>
 
@@ -109,44 +106,46 @@
             <span>🖋️</span>
             <span>
               Your goal is to score points by reaching exactly
-              <strong>17</strong> in any slot using the current flick number. On
+              <strong>15</strong> in any slot using the current flick number. On
               success, you gain <strong>1 point</strong>, and the slot resets to
               zero.
             </span>
           </li>
+
           <li>
             <span>🖋️</span>
             <span>
               Click the <i>“Flick”</i> button below a slot to place the current
-              number into it.</span
+              number into it. Flick numbers range from <strong>1</strong> to
+              <strong>5</strong>. You get 70 flicks total.</span
             >
           </li>
+
           <li>
-            <span>🖋️</span> To win, you need to reach a score of
-            <strong>10</strong>.
+            <span>🖋️</span
+            ><span>
+              You win by reaching a score of <strong>10</strong>. It have to be
+              done before your flicks pool <strong>runs out</strong>.
+            </span>
           </li>
-          <li>
-            <span>🖋️</span>
-            <span>
-              You get <strong>70</strong> flicks. Reach the winning score before
-              they run out.</span
-            >
-          </li>
-          <li>
-            <span>🖋️</span>
-            <span>
-              If a slot’s value exceeds <strong>17</strong>, it resets to zero
-              and you lose <strong>1 point.</strong></span
-            >
-          </li>
-          <li>🖋️ If your score drops below <strong>0</strong>, you lose.</li>
+
           <li>
             <span>🖋️</span>
             <span>
-              Your <strong>high score</strong> is based on how few flicks you
-              use to win — the fewer clicks, the better. Get your highscore as
-              close to 70 as possible! 😎</span
+              <span>
+                If a slot’s value exceeds <strong>15</strong>, it resets to zero
+                and you lose <strong>1 point</strong>. If your score drops below
+                <strong>0</strong>, you lose.</span
+              ></span
             >
+          </li>
+
+          <li>
+            <span>🖋️</span>
+            <span>
+              Your <strong>high score</strong> depends on how many flick clicks
+              you used to win.
+            </span>
           </li>
         </ul>
 

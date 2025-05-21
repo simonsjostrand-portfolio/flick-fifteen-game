@@ -1,7 +1,7 @@
 :root {
   --ff-primary: 'Quantico', sans-serif;
-  /* --ff-secondary: ; */
 
+  /* Font sizes */
   --fs-game-title: 5rem;
   --fs-start-title: 6.9rem;
   --fs-start-text: 1.5rem;
@@ -22,34 +22,38 @@
   --fs-good-luck: 1.6rem;
   --fs-btn-close-rules: 1.3rem;
 
+  /* Font weights */
   --fw-bold: 700;
 
+  /* Colors */
   --clr-body: hsl(0, 0%, 12%);
-  --clr-game-title: hsl(223, 51%, 63%);
-  --clr-slot: hsl(56, 18%, 81%);
-  --clr-slot-number: hsl(0, 0%, 22%);
-  --clr-btn-flick: hsl(227, 100%, 5%);
-  --clr-btn-flick-bg: hsl(64, 72%, 69%);
-  --clr-btn-flick-hover-bg: hsl(215, 16%, 37%);
-  --clr-btn-flick-hover: hsl(44, 23%, 91%);
-  --clr-btn-flick-active: hsl(215, 16%, 29%);
-  --clr-status-container: hsl(215, 13%, 19%);
-  --clr-status: hsl(0, 0%, 93%);
-  --clr-current: hsl(0, 0%, 95%);
-  --clr-drops: hsl(223, 100%, 82%);
-  --clr-score: hsl(165, 76%, 49%);
-  --clr-highscore: hsl(37, 76%, 49%);
-  --clr-btn-rules: hsl(0, 0%, 50%);
-  --clr-btn-rules-hover: hsl(0, 0%, 79%);
-  --clr-rules-title: --clr-slot-number;
-  --clr-rules: --clr-slot-number;
-  --clr-rules-bg: hsl(42, 30%, 69%);
-  --clr-good-luck: --clr-btn-flick-active;
   --clr-start-message: rgb(247, 248, 201);
   --clr-win-title: rgb(182, 255, 24);
   --clr-win-message: rgb(255, 254, 179);
   --clr-loss-title: rgb(242, 67, 67);
   --clr-loss-message: rgb(251, 125, 125);
+  --clr-game-title: hsl(223, 51%, 63%);
+  --clr-slot: hsl(56, 18%, 81%);
+  --clr-slot-number: hsl(0, 0%, 22%);
+  --clr-status-container: hsl(215, 13%, 19%);
+  --clr-status: hsl(0, 0%, 93%);
+  --clr-current: hsl(0, 0%, 95%);
+  --clr-flicks-left: hsl(223, 100%, 82%);
+  --clr-score: hsl(165, 76%, 49%);
+  --clr-highscore: hsl(37, 76%, 49%);
+  --clr-rules-title: --clr-slot-number;
+  --clr-rules: --clr-slot-number;
+  --clr-rules-bg: hsl(42, 30%, 69%);
+  --clr-good-luck: --clr-btn-flick-active;
+  --clr-btn-flick: hsl(227, 100%, 5%);
+  --clr-btn-flick-bg: hsl(64, 72%, 69%);
+  --clr-btn-flick-hover-bg: hsl(215, 16%, 37%);
+  --clr-btn-flick-hover: hsl(44, 23%, 91%);
+  --clr-btn-flick-active: hsl(215, 16%, 29%);
+  --clr-btn-play-again: hsla(37, 73%, 53%, 0.9);
+  --clr-btn-play-again-hover: hsl(37, 77%, 65%);
+  --clr-btn-rules: hsl(0, 0%, 55%);
+  --clr-btn-rules-hover: hsl(0, 0%, 69%);
 }
 
 html,
@@ -68,8 +72,10 @@ body {
 }
 
 main {
-  flex: 1;
-
+  flex: 1; /* To stick footer to the bottom */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   opacity: 0;
   transition: opacity 2s ease;
 }
@@ -81,7 +87,9 @@ main.visible {
 .game-title {
   color: var(--clr-game-title);
   font-size: var(--fs-game-title);
-  margin-block: 100px 90px;
+  margin-block-start: -18px;
+  margin-block-end: 90px;
+  text-align: center;
 
   position: relative;
 
@@ -90,9 +98,9 @@ main.visible {
 
     position: absolute;
     top: -14px;
-    right: -40px;
+    right: 0px;
 
-    animation: pulse 12s ease infinite;
+    animation: pulse 6s ease infinite;
   }
 }
 
@@ -179,7 +187,7 @@ main.visible {
   border-radius: 2px;
   padding: 24px 60px;
   margin-inline: auto;
-  margin-block-end: 84px;
+  margin-block-end: 80px;
 
   p {
     padding: 1px;
@@ -192,7 +200,7 @@ main.visible {
 }
 
 .flicks-left {
-  color: var(--clr-drops);
+  color: var(--clr-flicks-left);
 }
 
 .highscore {
@@ -315,8 +323,6 @@ main.visible {
   z-index: 555;
 
   .winner-icon {
-    margin-block-start: -50px;
-
     animation: fadeInFast 1.4s ease-in;
   }
 
@@ -330,9 +336,14 @@ main.visible {
   .winner-message {
     color: var(--clr-win-message);
     font-size: var(--fs-winner-text);
+    text-align: center;
     margin-block-end: 60px;
 
     animation: fadeInFast 1.4s ease-in;
+
+    strong {
+      color: var(--clr-highscore);
+    }
   }
 }
 
@@ -350,8 +361,6 @@ main.visible {
   z-index: 555;
 
   .loss-icon {
-    margin-block-start: -50px;
-
     animation: fadeInFast 1.7s ease-in;
   }
 
@@ -359,7 +368,7 @@ main.visible {
     font-size: var(--fs-loss-title);
     margin-block-end: 20px;
 
-    animation: jumpInLoss 3s ease-in-out forwards;
+    animation: jumpInLoss 2.4s ease-in-out forwards;
   }
 
   .loss-message {
@@ -449,13 +458,13 @@ main.visible {
 
 .btn-play-again {
   color: #000;
-  background-color: #f1e272dd;
+  background-color: var(--clr-game-title);
   font: inherit;
   font-size: 1.1rem;
   letter-spacing: 1px;
   border: none;
   border-radius: 2px;
-  outline: 2px solid #d5c07b;
+  outline: 2px solid var(--clr-game-title);
   outline-offset: 4px;
   padding: 16px 32px;
   cursor: pointer;
@@ -464,7 +473,7 @@ main.visible {
 }
 
 .btn-play-again:hover {
-  background-color: #c0c376;
+  background-color: var(--clr-flicks-left);
   outline-offset: 5px;
   outline-width: 3px;
 }

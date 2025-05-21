@@ -1,8 +1,8 @@
 import * as config from './config.js';
 
-// Set a random number (1–7) as current flick and update UI
+// Set a random number (1–5) as current flick and update UI
 export const generateRandomNumber = function (state, curNumberEl) {
-  const number = Math.trunc(Math.random() * 7 + 1);
+  const number = Math.trunc(Math.random() * 5 + 1);
 
   state.curNumber = number;
   curNumberEl.textContent = `Flick: ${number}`;
@@ -26,6 +26,10 @@ export const resetSlotScore = (state, slotNumberEl, scoreEl, scoreChange) => {
 export const decreaseFlicks = function (state, flicksEl) {
   state.flicks--;
   flicksEl.textContent = `Flicks left: ${state.flicks}`;
+};
+
+export const updateHighscore = function (state, highscoreEl) {
+  highscoreEl.textContent = `Highscore: ${state.highscore}`;
 };
 
 // Reset all slots, score, and flicks

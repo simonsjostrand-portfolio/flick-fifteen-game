@@ -11,6 +11,7 @@ import {
   updateSlotValue,
   resetSlotScore,
   decreaseFlicks,
+  updateHighscore,
   resetGame,
 } from './utilities.js';
 
@@ -18,6 +19,7 @@ const overlayStart = document.querySelector('.overlay-start');
 const overlayRules = document.querySelector('.overlay-rules');
 const overlayWin = document.querySelector('.overlay-win');
 const overlayLoss = document.querySelector('.overlay-loss');
+const messageWin = document.querySelector('.winner-message');
 const modalRules = document.querySelector('.modal-rules');
 const btnOpenRules = document.querySelectorAll('.btn-rules');
 const btnCloseRules = document.querySelector('.btn-close-rules');
@@ -45,7 +47,7 @@ const handlePlay = () => {
 
   setTimeout(() => {
     document.querySelector('main').classList.add('visible');
-  }, 40);
+  }, 50);
 };
 
 const handleFlickClick = function (e) {
@@ -65,14 +67,20 @@ const handleFlickClick = function (e) {
 
     // If winning score reached, show win overlay and reset game
     if (state.score === WINNING_SCORE) {
+      const flicksUsed = INIT_FLICKS - state.flicks + 1;
+
+      messageWin.innerHTML = `GGs! It took you <strong>${flicksUsed}</strong> flicks to win.<br />
+        Somewhere out there, your high score is bragging about you. Or is it?`;
       overlayWin.classList.add('active');
-      resetGame(state, slotNumberEls, scoreEl, flicksEl);
 
       // Update highscore if needed
-      if (state.flicks > state.highscore) {
-        state.highscore = state.flicks;
-        highscoreEl.textContent = `Highscore: ${state.highscore}`;
+      if (flicksUsed < state.highscore || state.highscore === 0) {
+        state.highscore = flicksUsed;
+        updateHighscore(state, highscoreEl);
       }
+
+      resetGame(state, slotNumberEls, scoreEl, flicksEl);
+      return;
     }
   }
   // If slot exceeds target score, reset slot and subtract score
@@ -83,6 +91,7 @@ const handleFlickClick = function (e) {
     if (state.score === LOSING_SCORE) {
       overlayLoss.classList.add('active');
       resetGame(state, slotNumberEls, scoreEl, flicksEl);
+      return;
     }
   }
 
