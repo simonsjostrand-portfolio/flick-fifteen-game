@@ -17,6 +17,10 @@ A number puzzle game built with HTML, CSS, and vanilla JavaScript.
 - Animated overlays for **start**, **win**, and **loss** states.
 - Game rules modal with easy access.
 
+- ## 🌍 Live Demo
+
+[Check it out here](https://simonsjostrand-portfolio.github.io/flick-fifteen-game/)
+
 ## 🚀 Tech Stack
 
 - **HTML5**
