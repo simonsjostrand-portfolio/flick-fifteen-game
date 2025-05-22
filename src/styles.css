@@ -2,7 +2,7 @@
   --ff-primary: 'Quantico', sans-serif;
 
   /* Font sizes */
-  --fs-game-title: 5rem;
+  --fs-game-title: 5.4rem;
   --fs-start-title: 6.9rem;
   --fs-start-text: 1.5rem;
   --fs-btn-start: 1.3rem;
@@ -98,7 +98,7 @@ main.visible {
 
     position: absolute;
     top: -14px;
-    right: 0px;
+    right: -8px;
 
     animation: pulse 6s ease infinite;
   }
