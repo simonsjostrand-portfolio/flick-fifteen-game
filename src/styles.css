@@ -145,6 +145,11 @@ main.visible {
   font-size: var(--fs-slot-number);
 }
 
+.slot-flash {
+  color: #6a44c1;
+  transition: background-color 100ms;
+}
+
 .btn-flick {
   width: 90%;
   font: inherit;

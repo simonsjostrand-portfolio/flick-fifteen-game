@@ -33,27 +33,27 @@
         <div class="slots-wrapper">
           <div class="slot-wrapper">
             <div class="slot">
-              <span class="slot-number">0</span>
+              <span class="slot-number" data-slot="1">0</span>
             </div>
-            <button class="btn-flick">Flick</button>
+            <button class="btn-flick" data-slot="1">Flick</button>
           </div>
           <div class="slot-wrapper">
             <div class="slot">
-              <span class="slot-number">0</span>
+              <span class="slot-number" data-slot="2">0</span>
             </div>
-            <button class="btn-flick">Flick</button>
+            <button class="btn-flick" data-slot="2">Flick</button>
           </div>
           <div class="slot-wrapper">
             <div class="slot">
-              <span class="slot-number">0</span>
+              <span class="slot-number" data-slot="3">0</span>
             </div>
-            <button class="btn-flick">Flick</button>
+            <button class="btn-flick" data-slot="3">Flick</button>
           </div>
           <div class="slot-wrapper">
             <div class="slot">
-              <span class="slot-number">0</span>
+              <span class="slot-number" data-slot="4">0</span>
             </div>
-            <button class="btn-flick">Flick</button>
+            <button class="btn-flick" data-slot="4">Flick</button>
           </div>
         </div>
         <p class="current-flick-number"></p>
@@ -115,6 +115,16 @@
           <li>
             <span>🖋️</span>
             <span>
+              <span>
+                If a slot’s value exceeds <strong>15</strong>, it resets to zero
+                and you lose <strong>1 point</strong>.
+              </span></span
+            >
+          </li>
+
+          <li>
+            <span>🖋️</span>
+            <span>
               Click the <i>“Flick”</i> button below a slot to place the current
               number into it. Flick numbers range from <strong>1</strong> to
               <strong>5</strong>. You get 80 flicks total.</span
@@ -124,26 +134,15 @@
           <li>
             <span>🖋️</span
             ><span>
-              You win by reaching a score of <strong>10</strong>. It have to be
-              done before your flicks pool <strong>runs out</strong>.
+              You win by reaching a score of <strong>10</strong>. Lose if your
+              score drops below <strong>0</strong> or you run out of flicks.
             </span>
           </li>
 
           <li>
             <span>🖋️</span>
             <span>
-              <span>
-                If a slot’s value exceeds <strong>15</strong>, it resets to zero
-                and you lose <strong>1 point</strong>. If your score drops below
-                <strong>0</strong>, you lose.</span
-              ></span
-            >
-          </li>
-
-          <li>
-            <span>🖋️</span>
-            <span>
-              Your <strong>high score</strong> depends on how many flick clicks
+              Your <strong>highscore</strong> depends on how many flick clicks
               you used to win.
             </span>
           </li>
@@ -168,7 +167,7 @@
         </div>
         <a
           class="link-icon-author"
-          href="https://www.flaticon.com/free-icons/gaming"
+          href="https://www.flaticon.com/"
           title="gaming icons"
           ><span>Gaming icon</span> created by
           <span>Freepik - Flaticon</span></a

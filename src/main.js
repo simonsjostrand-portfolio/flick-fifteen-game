@@ -28,7 +28,7 @@ const btnFlick = document.querySelectorAll('.btn-flick');
 const slotNumberEls = document.querySelectorAll('.slot-number');
 const curFlickEl = document.querySelector('.current-flick-number');
 const scoreEl = document.querySelector('.score');
-const flicksEl = document.querySelector('.flicks-left');
+const flicksLeftEl = document.querySelector('.flicks-left');
 const highscoreEl = document.querySelector('.highscore');
 
 /////////////////////////////////////////////////////////////////////
@@ -39,12 +39,18 @@ const state = {
   flicks: INIT_FLICKS,
 };
 
-// Handler functions
+// Handlers
 const handlePlay = () => {
+  generateRandomNumber(state, curFlickEl);
+
+  // Set flick count
+  flicksLeftEl.textContent = `Flicks left: ${state.flicks}`;
+
   overlayWin.classList.remove('active');
   overlayLoss.classList.remove('active');
   overlayStart.classList.remove('active');
 
+  // Fade in game
   setTimeout(() => {
     document.querySelector('main').classList.add('visible');
   }, 50);
@@ -54,9 +60,12 @@ const handleFlickClick = function (e) {
   const btnClicked = e.target;
   if (!btnClicked) return;
 
-  // Get clicked slot number element
-  const slotWrapper = btnClicked.closest('.slot-wrapper');
-  const slotNumberEl = slotWrapper.querySelector('.slot-number');
+  // Get slot index from button's data attribute
+  const slotIndex = btnClicked.dataset.slot;
+  const slotNumberEl = document.querySelector(
+    `.slot-number[data-slot="${slotIndex}"]`
+  );
+  if (!slotNumberEl) return;
 
   // Update slot value with current flick
   const updatedValue = updateSlotValue(slotNumberEl, state.curNumber);
@@ -79,7 +88,7 @@ const handleFlickClick = function (e) {
         updateHighscore(state, highscoreEl);
       }
 
-      resetGame(state, slotNumberEls, scoreEl, flicksEl);
+      resetGame(state, slotNumberEls, scoreEl, flicksLeftEl);
       return;
     }
   }
@@ -90,12 +99,25 @@ const handleFlickClick = function (e) {
     // If losing score reached, show loss overlay and reset game
     if (state.score === LOSING_SCORE) {
       overlayLoss.classList.add('active');
-      resetGame(state, slotNumberEls, scoreEl, flicksEl);
+      resetGame(state, slotNumberEls, scoreEl, flicksLeftEl);
       return;
     }
   }
 
-  decreaseFlicks(state, flicksEl);
+  slotNumberEl.classList.add('slot-flash');
+
+  setTimeout(() => {
+    slotNumberEl.classList.remove('slot-flash');
+  }, 80);
+
+  decreaseFlicks(state, flicksLeftEl);
+
+  if (state.flicks <= 0) {
+    overlayLoss.classList.add('active');
+    resetGame(state, slotNumberEls, scoreEl, flicksLeftEl);
+    return;
+  }
+
   generateRandomNumber(state, curFlickEl);
 };
 
@@ -108,11 +130,3 @@ btnOpenRules.forEach(btn => btn.addEventListener('click', handleToggleRules));
 btnCloseRules.addEventListener('click', handleToggleRules);
 overlayRules.addEventListener('click', handleToggleRules);
 modalRules.addEventListener('click', e => e.stopPropagation());
-
-// Initialize game
-const init = () => {
-  resetGame(state, slotNumberEls, scoreEl, flicksEl);
-  generateRandomNumber(state, curFlickEl);
-};
-
-init();
