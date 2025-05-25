@@ -1,6 +1,6 @@
 # Flick Seventeen 🎮
 
-A number puzzle game built with HTML, CSS, and vanilla JavaScript.
+A number puzzle game built with HTML, CSS, and JavaScript.
 
 ## 🕹️ How to Play
 
