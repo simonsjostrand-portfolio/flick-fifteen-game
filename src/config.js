@@ -1,7 +1,7 @@
-export const MAX_FLICK_VALUE = 5;
 export const INIT_FLICKS = 80;
-export const TARGET_SCORE = 15;
-export const SCORE_GAIN = 1;
-export const SCORE_LOSS = -1;
-export const WINNING_SCORE = 10;
-export const LOSING_SCORE = -1;
+export const MAX_FLICK_VALUE = 5;
+export const SLOT_TARGET_VALUE = 15;
+export const STARTING_LIFES = 3;
+export const POINTS_GAIN = 1;
+export const POINTS_LOSS = -1;
+export const POINTS_TO_WIN = 10;

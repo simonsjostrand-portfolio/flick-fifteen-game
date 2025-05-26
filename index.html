@@ -58,9 +58,10 @@
         </div>
         <p class="current-flick-number"></p>
         <div class="status-wrapper">
-          <p class="score">Score: 0</p>
+          <div class="points">Points: 0</div>
           <p class="flicks-left"></p>
         </div>
+        <div class="life-wrapper"></div>
         <p class="highscore">Highscore: 0</p>
       </div>
       <button class="btn-rules btn-open-rules">Game rules</button>
@@ -115,35 +116,43 @@
           <li>
             <span>🖋️</span>
             <span>
-              <span>
-                If a slot’s value exceeds <strong>15</strong>, it resets to zero
-                and you lose <strong>1 point</strong>.
-              </span></span
-            >
-          </li>
-
-          <li>
-            <span>🖋️</span>
-            <span>
-              Click the <i>“Flick”</i> button below a slot to place the current
-              number into it. Flick numbers range from <strong>1</strong> to
-              <strong>5</strong>. You get 80 flicks total.</span
-            >
-          </li>
-
-          <li>
-            <span>🖋️</span
-            ><span>
-              You win by reaching a score of <strong>10</strong>. Lose if your
-              score drops below <strong>0</strong> or you run out of flicks.
+              If a slot’s value goes over <strong>15</strong>, it resets to
+              zero, you lose <strong>1 point</strong> (if you have any), and you
+              lose <strong>1 heart</strong>.
             </span>
           </li>
 
           <li>
             <span>🖋️</span>
             <span>
-              Your <strong>highscore</strong> depends on how many flick clicks
-              you used to win.
+              Click the <i>“Flick”</i> button below a slot to add the current
+              flick number to it. Flick numbers range from <strong>1</strong> to
+              <strong>5</strong>. You start with
+              <strong>80 flicks</strong> total.
+            </span>
+          </li>
+
+          <li>
+            <span>🖋️</span>
+            <span>
+              You have <strong>3 hearts</strong>. If you lose all your hearts,
+              it's game over.
+            </span>
+          </li>
+
+          <li>
+            <span>🖋️</span>
+            <span>
+              You win by reaching <strong>10 points</strong> before you run out
+              of flicks or hearts.
+            </span>
+          </li>
+
+          <li>
+            <span>🖋️</span>
+            <span>
+              Your <strong>highscore</strong> depends on how few flicks you used
+              to win the game.
             </span>
           </li>
         </ul>

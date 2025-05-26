@@ -6,9 +6,10 @@
   --fs-start-title: 6.9rem;
   --fs-start-text: 1.5rem;
   --fs-btn-start: 1.3rem;
+  --fs-btn-play-again: 1.1rem;
   --fs-slot-number: 2.4rem;
   --fs-current: 1.1rem;
-  --fs-score: 1.2rem;
+  --fs-points: 1.2rem;
   --fs-highscore: 1.6rem;
   --fs-winner-title: 5.3rem;
   --fs-winner-text: 1.3rem;
@@ -39,7 +40,7 @@
   --clr-status: hsl(0, 0%, 93%);
   --clr-current: hsl(0, 0%, 95%);
   --clr-flicks-left: hsl(223, 100%, 82%);
-  --clr-score: hsl(165, 76%, 49%);
+  --clr-points: hsl(165, 76%, 49%);
   --clr-highscore: hsl(37, 76%, 49%);
   --clr-rules-title: --clr-slot-number;
   --clr-rules: --clr-slot-number;
@@ -187,20 +188,32 @@ main.visible {
   border-radius: 2px;
   padding: 24px 60px;
   margin-inline: auto;
-  margin-block-end: 80px;
+  margin-block-end: 10px;
 
   p {
     padding: 1px;
   }
 }
 
-.score {
-  color: var(--clr-score);
-  font-size: var(--fs-score);
+.points {
+  color: var(--clr-points);
+  font-size: var(--fs-points);
 }
 
 .flicks-left {
   color: var(--clr-flicks-left);
+}
+
+.life-wrapper {
+  margin-block-end: 80px;
+
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.heart-icon {
+  width: 22px;
 }
 
 .highscore {
@@ -460,7 +473,7 @@ main.visible {
   color: #000;
   background-color: var(--clr-game-title);
   font: inherit;
-  font-size: 1.1rem;
+  font-size: var(--fs-btn-play-again);
   letter-spacing: 1px;
   border: none;
   border-radius: 2px;
