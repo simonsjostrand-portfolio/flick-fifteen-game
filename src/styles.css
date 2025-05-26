@@ -145,11 +145,6 @@ main.visible {
   font-size: var(--fs-slot-number);
 }
 
-.slot-flash {
-  color: #6a44c1;
-  transition: background-color 100ms;
-}
-
 .btn-flick {
   width: 90%;
   font: inherit;
@@ -492,15 +487,13 @@ main.visible {
 /* Footer */
 footer {
   text-align: center;
-
-  .author-wrapper {
-    padding-block-end: 2px;
-  }
+  opacity: 0;
+  transition: opacity 2s ease;
 
   .author {
     color: #999;
     font-size: 0.7rem;
-    margin-block-end: -4px;
+    padding: 0.3rem;
 
     display: flex;
     gap: 10px;
@@ -513,18 +506,8 @@ footer {
     font-weight: var(--fw-bold);
     text-decoration: none;
   }
+}
 
-  .link-icon-author {
-    color: #888;
-    font-size: 0.6rem;
-    text-decoration: none;
-
-    span {
-      color: #cecece;
-    }
-  }
-
-  .link-icon-author:hover {
-    text-decoration: underline;
-  }
+footer.visible {
+  opacity: 1;
 }
